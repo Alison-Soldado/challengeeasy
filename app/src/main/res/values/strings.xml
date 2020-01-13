@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">ChallengeEasy</string>
+
+    <string name="activity_simulation_text_value_apply">Quanto você gostaria de aplicar? *</string>
+    <string name="activity_simulation_text_due_date">Qual a data de vencimento do investimento? *</string>
+    <string name="activity_simulation_text_percentage">Qual o percentual do CDI do investimento? *</string>
+    <string name="activity_simulation_text_simulate">Simular</string>
+    <string name="activity_simulation_text_hint_currency">R$</string>
+    <string name="activity_simulation_text_hint_date">dia/mês/ano</string>
+    <string name="activity_simulation_text_hint_percentage">100%</string>
+</resources>
