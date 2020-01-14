@@ -9,19 +9,25 @@ import com.example.challengeeasy.delegate.viewProvider
 import com.example.challengeeasy.extension.toast
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
-class SimulationActivity : AppCompatActivity() {
+class SimulationActivity : AppCompatActivity(), ValidationListener {
 
     private val simulationViewModel: SimulationViewModel by viewModel()
-    private val editTextInvestedAmount: AppCompatEditText by viewProvider(R.id.activity_simulation_edit_text_invested_amount)
-    private val editTextMaturityDate: AppCompatEditText by viewProvider(R.id.activity_simulation_edit_text_maturity_date)
-    private val editTextRate: AppCompatEditText by viewProvider(R.id.activity_simulation_edit_text_rate)
+    private val editTextInvestedAmount: SimulationEditText by viewProvider(R.id.activity_simulation_edit_text_invested_amount)
+    private val editTextMaturityDate: SimulationEditText by viewProvider(R.id.activity_simulation_edit_text_maturity_date)
+    private val editTextRate: SimulationEditText by viewProvider(R.id.activity_simulation_edit_text_rate)
     private val buttonSimulate: AppCompatButton by viewProvider(R.id.activity_simulation_button_simulate)
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_simulation)
         initObservable()
+        setupListeners()
         setupClickButtonSimulate()
+    }
+
+    private fun setupListeners() {
+        editTextInvestedAmount.setValidationListener(this)
+        editTextMaturityDate.setValidationListener(this)
+        editTextRate.setValidationListener(this)
     }
 
     private fun setupClickButtonSimulate() {
@@ -42,5 +48,9 @@ class SimulationActivity : AppCompatActivity() {
         simulationViewModel.error.observe(this, Observer {  })
 
         simulationViewModel.loading.observe(this, Observer {  })
+    }
+
+    override fun validate() {
+
     }
 }

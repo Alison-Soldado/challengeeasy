@@ -19,13 +19,15 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"/>
 
-    <androidx.appcompat.widget.AppCompatEditText
+    <com.example.challengeeasy.SimulationEditText
         android:id="@+id/activity_simulation_edit_text_invested_amount"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
         android:textSize="24sp"
         android:hint="@string/activity_simulation_text_hint_currency"
+        app:type="monetary"
+        android:inputType="numberDecimal"
         android:textAlignment="center"
         app:layout_constraintTop_toBottomOf="@id/activity_simulation_text_view_invested_amount"
         app:layout_constraintStart_toStartOf="parent"
@@ -43,12 +45,14 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"/>
 
-    <androidx.appcompat.widget.AppCompatEditText
+    <com.example.challengeeasy.SimulationEditText
         android:id="@+id/activity_simulation_edit_text_maturity_date"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:hint="@string/activity_simulation_text_hint_date"
         android:textAlignment="center"
+        app:type="date"
+        android:inputType="date"
         app:layout_constraintTop_toBottomOf="@id/activity_simulation_text_view_maturity_date"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"/>
@@ -65,12 +69,14 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"/>
 
-    <androidx.appcompat.widget.AppCompatEditText
+    <com.example.challengeeasy.SimulationEditText
         android:id="@+id/activity_simulation_edit_text_rate"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
         android:hint="@string/activity_simulation_text_hint_percentage"
+        app:type="percentage"
+        android:inputType="number"
         android:textAlignment="center"
         app:layout_constraintTop_toBottomOf="@id/activity_simulation_text_view_rate"
         app:layout_constraintStart_toStartOf="parent"
