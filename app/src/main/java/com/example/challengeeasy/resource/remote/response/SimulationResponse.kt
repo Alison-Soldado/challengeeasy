@@ -4,7 +4,7 @@ import com.google.gson.annotations.SerializedName
 import java.math.BigDecimal
 
 class SimulationResponse(
-    @SerializedName("InvestmentParameter") val investmentParameter: InvestmentParameter,
+    @SerializedName("investmentParameter") val investmentParameter: InvestmentParameter,
     @SerializedName("grossAmount") val grossAmount: BigDecimal,
     @SerializedName("taxesAmount") val taxesAmount: BigDecimal,
     @SerializedName("netAmount") val netAmount: BigDecimal,

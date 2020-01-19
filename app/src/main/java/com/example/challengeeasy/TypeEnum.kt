@@ -1,6 +1,6 @@
 package com.example.challengeeasy
 
-enum class TypeEnum(type: String) {
+enum class TypeEnum(val type: String) {
     MONETARY("monetary"),
     DATE("date"),
     PERCENTAGE("percentage")

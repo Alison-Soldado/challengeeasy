@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/activity_result_simulation_text_view_result"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="@string/activity_result_simulation_text_result"
+        android:textAlignment="center"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/activity_result_simulation_text_view_value_result"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        tools:text="R$ 1088,69"
+        android:textAlignment="center"
+        app:layout_constraintTop_toBottomOf="@id/activity_result_simulation_text_view_result"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/activity_result_simulation_text_view_yield_total"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="@string/activity_result_simulation_text_yield"
+        android:textAlignment="center"
+        app:layout_constraintTop_toBottomOf="@id/activity_result_simulation_text_view_value_result"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+    <com.example.challengeeasy.ResultTextView
+        android:id="@+id/activity_result_simulation_text_view_value_apply"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:text_result="Valor aplicado inicialmente"
+        app:layout_constraintTop_toBottomOf="@id/activity_result_simulation_text_view_yield_total"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+    <com.example.challengeeasy.ResultTextView
+        android:id="@+id/activity_result_simulation_text_view_value_gross"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:text_result="Valor bruto do investimento"
+        app:layout_constraintTop_toBottomOf="@id/activity_result_simulation_text_view_value_apply"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+    <com.example.challengeeasy.ResultTextView
+        android:id="@+id/activity_result_simulation_text_view_value_investment"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:text_result="Valor do rendimento"
+        app:layout_constraintTop_toBottomOf="@id/activity_result_simulation_text_view_value_gross"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+    <com.example.challengeeasy.ResultTextView
+        android:id="@+id/actiivity_result_simulation_text_view_ir_investment"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:text_result="IR sobre o investimento"
+        app:layout_constraintTop_toBottomOf="@id/activity_result_simulation_text_view_value_investment"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+    <com.example.challengeeasy.ResultTextView
+        android:id="@+id/activity_result_simulation_text_view_net_value"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:text_result="Valor líquido do investimento"
+        app:layout_constraintTop_toBottomOf="@id/actiivity_result_simulation_text_view_ir_investment"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+    <com.example.challengeeasy.ResultTextView
+        android:id="@+id/activity_result_simulation_text_view_date_redemption"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:text_result="Data do resgate"
+        app:layout_constraintTop_toBottomOf="@id/activity_result_simulation_text_view_net_value"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+    <com.example.challengeeasy.ResultTextView
+        android:id="@+id/activity_result_simulation_text_view_continuous_days"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:text_result="Dias corridos"
+        app:layout_constraintTop_toBottomOf="@id/activity_result_simulation_text_view_date_redemption"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <com.example.challengeeasy.ResultTextView
+        android:id="@+id/activity_result_simulation_text_view_monthly_income"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:text_result="Rendimento mensal"
+        app:layout_constraintTop_toBottomOf="@id/activity_result_simulation_text_view_continuous_days"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+    <com.example.challengeeasy.ResultTextView
+        android:id="@+id/activity_result_simulation_text_view_percentage_cdi"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:text_result="Percentual do CDI do investimento"
+        app:layout_constraintTop_toBottomOf="@id/activity_result_simulation_text_view_monthly_income"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+    <com.example.challengeeasy.ResultTextView
+        android:id="@+id/activity_result_simulation_text_view_annual_profit"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:text_result="Rentabilidade anual"
+        app:layout_constraintTop_toBottomOf="@id/activity_result_simulation_text_view_percentage_cdi"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+    <com.example.challengeeasy.ResultTextView
+        android:id="@+id/activity_result_simulation_text_view_period_profit"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:text_result="Rentabilidade no período"
+        app:layout_constraintTop_toBottomOf="@id/activity_result_simulation_text_view_annual_profit"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+</androidx.constraintlayout.widget.ConstraintLayout>

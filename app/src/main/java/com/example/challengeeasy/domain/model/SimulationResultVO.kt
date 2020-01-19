@@ -1,7 +1,10 @@
 package com.example.challengeeasy.domain.model
 
+import android.os.Parcelable
+import kotlinx.android.parcel.Parcelize
 import java.math.BigDecimal
 
+@Parcelize
 data class SimulationResultVO(
     val investmentParameter: InvestmentParameterVO,
     val grossAmount: BigDecimal,
@@ -15,8 +18,9 @@ data class SimulationResultVO(
     val taxesRate: BigDecimal,
     val rateProfit: BigDecimal,
     val annualNetRateProfit: BigDecimal
-)
+) : Parcelable
 
+@Parcelize
 data class InvestmentParameterVO(
     val investedAmount: BigDecimal,
     val yearlyInterestRate: BigDecimal,
@@ -25,4 +29,4 @@ data class InvestmentParameterVO(
     val maturityDate: String,
     val rate: Double,
     val isTaxFree: Boolean
-)
+) : Parcelable

@@ -3,4 +3,12 @@
     <declare-styleable name="SimulationEditText">
         <attr name="type" format="string"/>
     </declare-styleable>
+
+    <declare-styleable name="EditTextErrorState">
+        <attr name="state_error" format="boolean"/>
+    </declare-styleable>
+
+    <declare-styleable name="ResultTextView">
+        <attr name="text_result" format="string"/>
+    </declare-styleable>
 </resources>
