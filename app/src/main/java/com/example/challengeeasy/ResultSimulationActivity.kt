@@ -2,6 +2,7 @@ package com.example.challengeeasy
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.widget.AppCompatButton
 import androidx.appcompat.widget.AppCompatTextView
 import com.example.challengeeasy.delegate.viewProvider
 import com.example.challengeeasy.domain.model.SimulationResultVO
@@ -24,25 +25,43 @@ class ResultSimulationActivity : AppCompatActivity() {
     private val textViewPercentageCdi: ResultTextView by viewProvider(R.id.activity_result_simulation_text_view_percentage_cdi)
     private val textViewAnnualProfit: ResultTextView by viewProvider(R.id.activity_result_simulation_text_view_annual_profit)
     private val textViewPeriodProfit: ResultTextView by viewProvider(R.id.activity_result_simulation_text_view_period_profit)
+    private val buttonSimulateAgain: AppCompatButton by viewProvider(R.id.activity_result_simulation_button_simulate_again)
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_result_simulation)
+        val simulationResultVO = initIntent()
+        initComponents(simulationResultVO)
+        buttonSimulateAgain.setOnClickListener { finish() }
+    }
 
-        val simulationResultVO: SimulationResultVO? = intent.getParcelableExtra("resultSimulation")
+    private fun initIntent(): SimulationResultVO? {
+        return intent.getParcelableExtra(EXTRA_RESULT)
+    }
 
-        textViewValueResult.text = simulationResultVO?.grossAmount?.toBrazilianCurrency() ?: ""
-        textViewYieldTotal.text = getString(R.string.activity_result_simulation_text_yield, simulationResultVO?.grossAmountProfit?.toBrazilianCurrency())
-        textViewValueApply.setText(simulationResultVO?.investmentParameter?.investedAmount?.toBrazilianCurrency() ?: "")
-        textViewValueGross.setText(simulationResultVO?.grossAmount?.toBrazilianCurrency() ?: "")
-        textViewValueInvestment.setText(simulationResultVO?.grossAmountProfit?.toBrazilianCurrency() ?: "")
-        textViewIr.setText(simulationResultVO?.taxesAmount?.toBrazilianCurrency() ?: "")
-        textViewNetValue.setText(simulationResultVO?.netAmount?.toBrazilianCurrency() ?: "")
-        textViewDateRedemption.setText(simulationResultVO?.investmentParameter?.maturityDate?.toDisplayDate() ?: "")
-        textViewContinuousDays.setText(simulationResultVO?.investmentParameter?.maturityTotalDays.toString())
-        textViewMonthlyIncome.setText(simulationResultVO?.monthlyGrossRateProfit?.toDouble()?.toPercent() ?: "")
-        textViewPercentageCdi.setText(simulationResultVO?.investmentParameter?.rate?.toPercent() ?: "")
-        textViewAnnualProfit.setText(simulationResultVO?.annualGrossRateProfit?.toDouble()?.toPercent() ?: "")
-        textViewPeriodProfit.setText(simulationResultVO?.annualNetRateProfit?.toDouble()?.toPercent() ?: "")
+    private fun initComponents(simulationResultVO: SimulationResultVO?) {
+        simulationResultVO?.let {
+            textViewValueResult.text = simulationResultVO.grossAmount.toBrazilianCurrency()
+            textViewYieldTotal.text = getString(
+                R.string.activity_result_simulation_text_yield,
+                simulationResultVO.grossAmountProfit.toBrazilianCurrency()
+            )
+            textViewValueApply.setText(simulationResultVO.investmentParameter.investedAmount.toBrazilianCurrency())
+            textViewValueGross.setText(simulationResultVO.grossAmount.toBrazilianCurrency())
+            textViewValueInvestment.setText(simulationResultVO.grossAmountProfit.toBrazilianCurrency())
+            textViewIr.setText(simulationResultVO.taxesAmount.toBrazilianCurrency())
+            textViewNetValue.setText(simulationResultVO.netAmount.toBrazilianCurrency())
+            textViewDateRedemption.setText(simulationResultVO.investmentParameter.maturityDate.toDisplayDate())
+            textViewContinuousDays.setText(simulationResultVO.investmentParameter.maturityTotalDays.toString())
+            textViewMonthlyIncome.setText(simulationResultVO.monthlyGrossRateProfit.toDouble().toPercent())
+            textViewPercentageCdi.setText(simulationResultVO.investmentParameter.rate.toPercent())
+            textViewAnnualProfit.setText(simulationResultVO.annualGrossRateProfit.toDouble().toPercent())
+            textViewPeriodProfit.setText(simulationResultVO.annualNetRateProfit.toDouble().toPercent())
+
+        }
+    }
+
+    companion object {
+        const val EXTRA_RESULT = "resultSimulation"
     }
 }

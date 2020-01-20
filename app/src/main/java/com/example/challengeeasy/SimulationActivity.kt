@@ -4,10 +4,9 @@ import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.AppCompatButton
-import androidx.appcompat.widget.AppCompatEditText
 import androidx.lifecycle.Observer
+import com.example.challengeeasy.ResultSimulationActivity.Companion.EXTRA_RESULT
 import com.example.challengeeasy.delegate.viewProvider
-import com.example.challengeeasy.extension.toServerCurrency
 import com.example.challengeeasy.extension.toast
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
@@ -46,7 +45,7 @@ class SimulationActivity : AppCompatActivity(), ValidationListener {
     private fun initObservable() {
         simulationViewModel.simulationResult.observe(this, Observer { simulationResult ->
             val intentResult = Intent(this, ResultSimulationActivity::class.java)
-            intentResult.putExtra("resultSimulation", simulationResult)
+            intentResult.putExtra(EXTRA_RESULT, simulationResult)
             startActivity(intentResult)
         })
 
