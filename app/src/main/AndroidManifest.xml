@@ -15,7 +15,7 @@
             android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
 
-        <activity android:name=".SimulationActivity">
+        <activity android:name=".simulation.SimulationActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
 
@@ -24,7 +24,7 @@
         </activity>
 
 
-        <activity android:name=".ResultSimulationActivity"/>
+        <activity android:name=".resultsimulation.ResultSimulationActivity"/>
     </application>
 
 </manifest>

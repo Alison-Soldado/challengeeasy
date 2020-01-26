@@ -1,22 +1,35 @@
-package com.example.challengeeasy
+package com.example.challengeeasy.simulation
 
 import android.content.Intent
 import android.os.Bundle
-import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.AppCompatButton
 import androidx.lifecycle.Observer
-import com.example.challengeeasy.ResultSimulationActivity.Companion.EXTRA_RESULT
+import com.example.challengeeasy.BaseActivity
+import com.example.challengeeasy.R
+import com.example.challengeeasy.SimulationEditText
+import com.example.challengeeasy.ValidationListener
 import com.example.challengeeasy.delegate.viewProvider
 import com.example.challengeeasy.extension.toast
+import com.example.challengeeasy.injection.SimulationModules.initSimulationModule
+import com.example.challengeeasy.resultsimulation.ResultSimulationActivity
+import com.example.challengeeasy.resultsimulation.ResultSimulationActivity.Companion.EXTRA_RESULT
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
-class SimulationActivity : AppCompatActivity(), ValidationListener {
-
+class SimulationActivity : BaseActivity(),
+    ValidationListener {
     private val simulationViewModel: SimulationViewModel by viewModel()
-    private val editTextInvestedAmount: SimulationEditText by viewProvider(R.id.activity_simulation_edit_text_invested_amount)
-    private val editTextMaturityDate: SimulationEditText by viewProvider(R.id.activity_simulation_edit_text_maturity_date)
+    private val editTextInvestedAmount: SimulationEditText by viewProvider(
+        R.id.activity_simulation_edit_text_invested_amount
+    )
+    private val editTextMaturityDate: SimulationEditText by viewProvider(
+        R.id.activity_simulation_edit_text_maturity_date
+    )
     private val editTextRate: SimulationEditText by viewProvider(R.id.activity_simulation_edit_text_rate)
     private val buttonSimulate: AppCompatButton by viewProvider(R.id.activity_simulation_button_simulate)
+
+    override fun initInjection() {
+        initSimulationModule()
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -49,12 +62,19 @@ class SimulationActivity : AppCompatActivity(), ValidationListener {
             startActivity(intentResult)
         })
 
-        simulationViewModel.error.observe(this, Observer { toast("error") })
+        simulationViewModel.error.observe(this, Observer {
+            toast(R.string.activity_simulation_text_toast_error)
+        })
 
-        simulationViewModel.loading.observe(this, Observer { toast("loading") })
+        simulationViewModel.loading.observe(this, Observer {
+            toast("loading")
+        })
     }
 
     override fun validate() {
-        buttonSimulate.isEnabled = editTextInvestedAmount.isValid() && editTextMaturityDate.isValid() && editTextRate.isValid()
+        buttonSimulate.isEnabled =
+            editTextInvestedAmount.isValid() &&
+                    editTextMaturityDate.isValid() &&
+                    editTextRate.isValid()
     }
 }

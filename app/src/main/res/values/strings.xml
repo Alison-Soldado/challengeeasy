@@ -8,8 +8,10 @@
     <string name="activity_simulation_text_hint_currency">R$</string>
     <string name="activity_simulation_text_hint_date">dia/mês/ano</string>
     <string name="activity_simulation_text_hint_percentage">100%</string>
+    <string name="activity_simulation_text_toast_error">Something went wrong, try later!</string>
 
     <string name="activity_result_simulation_text_result">Resultado da simulação</string>
     <string name="activity_result_simulation_text_yield">Rendimento total de %s</string>
     <string name="activity_result_simulation_text_simulate_again">Simular novamente</string>
+
 </resources>

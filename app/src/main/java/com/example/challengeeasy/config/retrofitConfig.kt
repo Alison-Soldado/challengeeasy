@@ -2,16 +2,16 @@ package com.example.challengeeasy.config
 
 import com.example.challengeeasy.BuildConfig
 import com.google.gson.GsonBuilder
-import com.jakewharton.retrofit2.adapter.kotlin.coroutines.CoroutineCallAdapterFactory
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import java.util.concurrent.TimeUnit
 
-const val CONNECTION_TIMEOUT = 50000L
-
 private val gson = GsonBuilder().setDateFormat("yyyy-MM-dd").create()
+
+private const val CONNECTION_TIMEOUT = 50000L
+
 
 internal fun provideOkHttpClient(): OkHttpClient {
     val client = OkHttpClient.Builder()
@@ -28,8 +28,8 @@ internal fun provideOkHttpClient(): OkHttpClient {
     return client.build()
 }
 
-internal fun provideRetrofit(okHttpClient: OkHttpClient) = Retrofit.Builder()
-    .baseUrl(BuildConfig.BASE_URL)
+internal fun provideRetrofit(url: String, okHttpClient: OkHttpClient) = Retrofit.Builder()
+    .baseUrl(url)
     .addConverterFactory(GsonConverterFactory.create(gson))
     .client(okHttpClient)
     .build()

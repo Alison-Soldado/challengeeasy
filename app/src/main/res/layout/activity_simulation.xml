@@ -6,7 +6,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:padding="16dp"
-        tools:context=".SimulationActivity">
+        tools:context=".simulation.SimulationActivity">
 
     <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/activity_simulation_text_view_invested_amount"

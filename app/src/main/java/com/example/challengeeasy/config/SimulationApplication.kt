@@ -1,21 +1,18 @@
 package com.example.challengeeasy.config
 
-import android.app.Application
+import androidx.multidex.MultiDexApplication
 import org.koin.android.ext.koin.androidContext
+import org.koin.android.ext.koin.androidLogger
 import org.koin.core.context.startKoin
 
 
-class SimulationApplication : Application() {
-
-    private val appModules by lazy {
-        listOf(remoteModule, simulationModule, uiModule)
-    }
+class SimulationApplication : MultiDexApplication() {
 
     override fun onCreate() {
         super.onCreate()
         startKoin {
+            androidLogger()
             androidContext(this@SimulationApplication)
-            modules(appModules)
         }
     }
 }

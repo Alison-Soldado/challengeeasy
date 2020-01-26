@@ -1,7 +1,8 @@
-package com.example.challengeeasy
+package com.example.challengeeasy.simulation
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
+import com.example.challengeeasy.BaseViewModel
 import com.example.challengeeasy.domain.model.SimulationResultVO
 import com.example.challengeeasy.domain.model.SimulationVO
 import com.example.challengeeasy.domain.source.SimulationDataSource
