@@ -7,13 +7,11 @@ import com.example.challengeeasy.config.createApi
 import com.example.challengeeasy.config.provideOkHttpClient
 import com.example.challengeeasy.config.provideRetrofit
 import com.example.challengeeasy.domain.source.SimulationDataSource
-import com.example.challengeeasy.injection.SimulationModules
-import com.example.challengeeasy.injection.SimulationModules.initSimulationModule
+import com.example.challengeeasy.injection.initSimulationModule
 import com.example.challengeeasy.resource.remote.api.SimulateApi
 import com.example.challengeeasy.resource.remote.source.SimulationRepository
 import io.mockk.every
-import io.mockk.mockk
-import io.mockk.objectMockk
+import io.mockk.mockkStatic
 import okhttp3.mockwebserver.MockWebServer
 import org.junit.After
 import org.junit.Before
@@ -36,6 +34,7 @@ class SimulationActivityTest {
 
     private lateinit var server: MockWebServer
     private lateinit var modulesTest: List<Module>
+    private val PATH_SIMULATION_MODULES = "com.example.challengeeasy.injection.SimulationModulesKt"
 
     @Before
     fun setup() {
@@ -59,8 +58,8 @@ class SimulationActivityTest {
         }
 
         modulesTest = listOf(uiModuleTest, simulationModuleTest, remoteModuleTest)
-        val simulationModulesMock: SimulationModules = mockk()
-        every { simulationModulesMock.initSimulationModule() } returns loadKoinModules(modulesTest)
+        mockkStatic(PATH_SIMULATION_MODULES)
+        every { initSimulationModule() } returns loadKoinModules(modulesTest)
     }
 
     @After

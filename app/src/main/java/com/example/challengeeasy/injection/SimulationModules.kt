@@ -12,22 +12,20 @@ import org.koin.androidx.viewmodel.dsl.viewModel
 import org.koin.core.context.loadKoinModules
 import org.koin.dsl.module
 
-object SimulationModules {
-    private const val URL = BuildConfig.BASE_URL
+private const val URL = BuildConfig.BASE_URL
 
-    private val uiModule = module {
-        viewModel { SimulationViewModel(get()) }
-    }
-
-    private val simulationModule = module {
-        single<SimulationDataSource> { SimulationRepository(get()) }
-    }
-
-    private val remoteModule = module {
-        single { provideOkHttpClient() }
-        single { provideRetrofit(URL, get()) }
-        single { createApi<SimulateApi>(get()) }
-    }
-
-    fun initSimulationModule() = loadKoinModules(listOf(uiModule, simulationModule, remoteModule))
+private val uiModule = module {
+    viewModel { SimulationViewModel(get()) }
 }
+
+private val simulationModule = module {
+    single<SimulationDataSource> { SimulationRepository(get()) }
+}
+
+private val remoteModule = module {
+    single { provideOkHttpClient() }
+    single { provideRetrofit(URL, get()) }
+    single { createApi<SimulateApi>(get()) }
+}
+
+internal fun initSimulationModule() = loadKoinModules(listOf(uiModule, simulationModule, remoteModule))

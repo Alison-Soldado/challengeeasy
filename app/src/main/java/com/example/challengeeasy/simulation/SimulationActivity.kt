@@ -10,7 +10,7 @@ import com.example.challengeeasy.SimulationEditText
 import com.example.challengeeasy.ValidationListener
 import com.example.challengeeasy.delegate.viewProvider
 import com.example.challengeeasy.extension.toast
-import com.example.challengeeasy.injection.SimulationModules.initSimulationModule
+import com.example.challengeeasy.injection.initSimulationModule
 import com.example.challengeeasy.resultsimulation.ResultSimulationActivity
 import com.example.challengeeasy.resultsimulation.ResultSimulationActivity.Companion.EXTRA_RESULT
 import org.koin.androidx.viewmodel.ext.android.viewModel
