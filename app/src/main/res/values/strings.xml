@@ -12,6 +12,17 @@
 
     <string name="activity_result_simulation_text_result">Resultado da simulação</string>
     <string name="activity_result_simulation_text_yield">Rendimento total de %s</string>
+    <string name="activity_result_simulation_text_value_apply">Valor aplicado inicialmente</string>
+    <string name="activity_result_simulation_text_value_grosss">Valor bruto do investimento</string>
+    <string name="activity_result_simulation_text_value_investment">Valor do rendimento</string>
+    <string name="activity_result_simulation_text_ir_investment">IR sobre o investimento</string>
+    <string name="activity_result_simulation_text_net_value">Valor líquido do investimento</string>
+    <string name="activity_result_simulation_text_date_redemption">Data do resgate</string>
+    <string name="activity_result_simulation_text_continuos_days">Dias corridos</string>
+    <string name="activity_result_simulation_text_monthly_income">Rendimento mensal</string>
+    <string name="activity_result_simulation_text_percentage_cdi">Percentual do CDI do investimento</string>
+    <string name="activity_result_simulation_text_annual_profit">Rentabilidade anual</string>
+    <string name="activity_result_simulation_text_period_profit">Rentabilidade no período</string>
     <string name="activity_result_simulation_text_simulate_again">Simular novamente</string>
 
 </resources>

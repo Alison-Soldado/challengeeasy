@@ -1,11 +1,15 @@
-package com.example.challengeeasy
+package com.example.challengeeasy.customview
 
 import android.content.Context
 import android.text.Editable
 import android.text.TextWatcher
 import android.util.AttributeSet
 import android.view.View
+import android.view.View.OnFocusChangeListener
 import androidx.appcompat.widget.AppCompatEditText
+import com.example.challengeeasy.Mask
+import com.example.challengeeasy.R
+import com.example.challengeeasy.validator.*
 
 
 class SimulationEditText(context: Context, attributeSet: AttributeSet) :
@@ -14,13 +18,15 @@ class SimulationEditText(context: Context, attributeSet: AttributeSet) :
     private var uiValidator: UiValidator? = null
     private var validationListener: ValidationListener? = null
     private val stateError = intArrayOf(R.attr.state_error)
-    private var hasBeenEdited = false
-    private var shouldShowError = false
-    private var hasFocus = false
+    private var isEdited = false
+    private var isError = false
+    private var isFocus = false
 
     init {
         val attributes =
-            context.obtainStyledAttributes(attributeSet, R.styleable.SimulationEditText)
+            context.obtainStyledAttributes(attributeSet,
+                R.styleable.SimulationEditText
+            )
 
         when (attributes.getString(0)) {
             TypeEnum.MONETARY.type -> setupMonetaryType()
@@ -34,14 +40,14 @@ class SimulationEditText(context: Context, attributeSet: AttributeSet) :
 
     override fun onCreateDrawableState(extraSpace: Int): IntArray {
         val drawableState = super.onCreateDrawableState(extraSpace + 2)
-        if (shouldShowError) {
+        if (isError) {
             View.mergeDrawableStates(drawableState, stateError)
         }
         return drawableState
     }
 
     private fun setupMonetaryType() {
-        addTextChangedListener(Mask.brazilianMonetaryFormat( this))
+        addTextChangedListener(Mask.brazilianMonetaryFormat(this))
         initValidator(AmountValidator)
     }
 
@@ -51,7 +57,7 @@ class SimulationEditText(context: Context, attributeSet: AttributeSet) :
     }
 
     private fun setupDateType() {
-        addTextChangedListener(Mask.mask( "##/##/####",this))
+        addTextChangedListener(Mask.mask("##/##/####", this))
         initValidator(DateValidator)
     }
 
@@ -64,31 +70,33 @@ class SimulationEditText(context: Context, attributeSet: AttributeSet) :
             override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {}
 
             override fun onTextChanged(text: CharSequence, start: Int, before: Int, count: Int) {
-                hasBeenEdited = true
+                isEdited = true
                 forceUpdateState()
                 validationListener?.validate()
             }
         })
 
         onFocusChangeListener = OnFocusChangeListener { _, hasFocus ->
-            this.hasFocus = hasFocus
+            this.isFocus = hasFocus
             updateState()
         }
     }
 
     private fun updateState() {
-        shouldShowError = !hasFocus && !uiValidator?.isValid(text.toString())!! && hasBeenEdited
-        refreshDrawableState()
+        uiValidator?.let {
+            isError = !isFocus && !it.isValid(text.toString()) && isEdited
+            refreshDrawableState()
+        }
     }
 
     fun forceUpdateState() {
-        shouldShowError = !uiValidator?.isValid(text.toString())!!
-        refreshDrawableState()
+        uiValidator?.let {
+            isError = !it.isValid(text.toString())
+            refreshDrawableState()
+        }
     }
 
-    fun isValid(): Boolean {
-        return uiValidator?.isValid(text.toString()) ?: false
-    }
+    fun isValid(): Boolean = uiValidator?.isValid(text.toString()) ?: false
 
     fun setValidationListener(validationListener: ValidationListener) {
         this.validationListener = validationListener

@@ -6,8 +6,8 @@ import androidx.appcompat.widget.AppCompatButton
 import androidx.lifecycle.Observer
 import com.example.challengeeasy.BaseActivity
 import com.example.challengeeasy.R
-import com.example.challengeeasy.SimulationEditText
-import com.example.challengeeasy.ValidationListener
+import com.example.challengeeasy.customview.SimulationEditText
+import com.example.challengeeasy.validator.ValidationListener
 import com.example.challengeeasy.delegate.viewProvider
 import com.example.challengeeasy.extension.toast
 import com.example.challengeeasy.injection.initSimulationModule

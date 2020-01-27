@@ -1,4 +1,6 @@
-package com.example.challengeeasy
+package com.example.challengeeasy.validator
+
+import com.example.challengeeasy.ONE_HUNDRED
 
 object AmountValidator : UiValidator {
 

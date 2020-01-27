@@ -5,12 +5,13 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.AppCompatButton
 import androidx.appcompat.widget.AppCompatTextView
 import com.example.challengeeasy.R
-import com.example.challengeeasy.ResultTextView
+import com.example.challengeeasy.customview.ResultTextView
 import com.example.challengeeasy.delegate.viewProvider
 import com.example.challengeeasy.domain.model.SimulationResultVO
-import com.example.challengeeasy.extension.toBrazilianCurrency
+import com.example.challengeeasy.extension.toBrazilCurrency
 import com.example.challengeeasy.extension.toDisplayDate
 import com.example.challengeeasy.extension.toPercent
+import com.example.challengeeasy.extension.toSpannableColorPrimary
 
 class ResultSimulationActivity : AppCompatActivity() {
 
@@ -30,6 +31,7 @@ class ResultSimulationActivity : AppCompatActivity() {
     private val textViewAnnualProfit: ResultTextView by viewProvider(R.id.activity_result_simulation_text_view_annual_profit)
     private val textViewPeriodProfit: ResultTextView by viewProvider(R.id.activity_result_simulation_text_view_period_profit)
     private val buttonSimulateAgain: AppCompatButton by viewProvider(R.id.activity_result_simulation_button_simulate_again)
+    private var indexStart: Int = 0
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -37,6 +39,7 @@ class ResultSimulationActivity : AppCompatActivity() {
         val simulationResultVO = initIntent()
         initComponents(simulationResultVO)
         setupClickButton()
+        supportActionBar?.setDisplayHomeAsUpEnabled(true)
     }
 
     private fun initIntent(): SimulationResultVO? {
@@ -45,23 +48,29 @@ class ResultSimulationActivity : AppCompatActivity() {
 
     private fun initComponents(simulationResultVO: SimulationResultVO?) {
         simulationResultVO?.let {
-            textViewValueResult.text = it.grossAmount.toBrazilianCurrency()
-            textViewYieldTotal.text = getString(
-                R.string.activity_result_simulation_text_yield,
-                it.grossAmountProfit.toBrazilianCurrency()
-            )
-            textViewValueApply.setText(it.investmentParameter.investedAmount.toBrazilianCurrency())
-            textViewValueGross.setText(it.grossAmount.toBrazilianCurrency())
-            textViewValueInvestment.setText(it.grossAmountProfit.toBrazilianCurrency())
-            textViewIr.setText(it.taxesAmount.toBrazilianCurrency())
-            textViewNetValue.setText(it.netAmount.toBrazilianCurrency())
+            textViewValueResult.text = it.grossAmount.toBrazilCurrency()
+            val textYield = getStringYield(it)
+            textViewYieldTotal.toSpannableColorPrimary(textYield, indexStart, textYield.length)
+            textViewValueApply.setText(it.investmentParameter.investedAmount.toBrazilCurrency())
+            textViewValueGross.setText(it.grossAmount.toBrazilCurrency())
+            textViewValueInvestment.setText(it.grossAmountProfit.toBrazilCurrency())
+            textViewIr.setText("${it.taxesAmount.toBrazilCurrency()} (${it.taxesRate.toDouble().toPercent()})")
+            textViewNetValue.setText(it.netAmount.toBrazilCurrency())
             textViewDateRedemption.setText(it.investmentParameter.maturityDate.toDisplayDate())
             textViewContinuousDays.setText(it.investmentParameter.maturityTotalDays.toString())
             textViewMonthlyIncome.setText(it.monthlyGrossRateProfit.toDouble().toPercent())
             textViewPercentageCdi.setText(it.investmentParameter.rate.toPercent())
             textViewAnnualProfit.setText(it.annualGrossRateProfit.toDouble().toPercent())
             textViewPeriodProfit.setText(it.annualNetRateProfit.toDouble().toPercent())
+        }
+    }
 
+    private fun getStringYield(simulationResultVO: SimulationResultVO): String {
+        return getString(
+            R.string.activity_result_simulation_text_yield,
+            simulationResultVO.grossAmountProfit.toBrazilCurrency()
+        ).apply {
+            indexStart = indexOf(simulationResultVO.grossAmountProfit.toBrazilCurrency())
         }
     }
 

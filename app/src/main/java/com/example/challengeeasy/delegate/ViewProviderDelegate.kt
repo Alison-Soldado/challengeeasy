@@ -1,8 +1,10 @@
 package com.example.challengeeasy.delegate
 
 import android.app.Activity
+import android.os.Build
 import android.view.View
 import androidx.annotation.IdRes
+import androidx.annotation.RequiresApi
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.RecyclerView
 import kotlin.reflect.KProperty
@@ -30,12 +32,14 @@ open class NullableViewProviderDelegate<out T : View>(@IdRes private val idRes: 
 
     private var view: T? = null
 
+    @RequiresApi(Build.VERSION_CODES.KITKAT)
     open operator fun getValue(thisRef: Activity, property: KProperty<*>): T? {
         view?.let { if (!it.isAttachedToWindow) view = null }
         view = view ?: thisRef.findViewById(idRes)
         return view
     }
 
+    @RequiresApi(Build.VERSION_CODES.KITKAT)
     open operator fun getValue(thisRef: Fragment, property: KProperty<*>): T? {
         view?.let { if (!it.isAttachedToWindow) view = null }
         view = view ?: thisRef.view?.findViewById(idRes)

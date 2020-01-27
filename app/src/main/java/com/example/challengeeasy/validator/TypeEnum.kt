@@ -1,4 +1,4 @@
-package com.example.challengeeasy
+package com.example.challengeeasy.validator
 
 enum class TypeEnum(val type: String) {
     MONETARY("monetary"),

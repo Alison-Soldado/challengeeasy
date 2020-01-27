@@ -1,10 +1,11 @@
-package com.example.challengeeasy
+package com.example.challengeeasy.customview
 
 import android.content.Context
 import android.util.AttributeSet
 import android.view.ViewGroup
 import androidx.appcompat.widget.AppCompatTextView
 import androidx.constraintlayout.widget.ConstraintLayout
+import com.example.challengeeasy.R
 import com.example.challengeeasy.delegate.viewProvider
 
 class ResultTextView @JvmOverloads constructor(
@@ -18,7 +19,8 @@ class ResultTextView @JvmOverloads constructor(
 
     init {
         inflate(context, R.layout.text_view_result, rootView as ViewGroup?)
-        context.theme.obtainStyledAttributes(attributeSet, R.styleable.ResultTextView, 0, 0)
+        context.theme.obtainStyledAttributes(attributeSet,
+            R.styleable.ResultTextView, 0, 0)
             .apply {
                 try {
                     textViewText.text = getText(R.styleable.ResultTextView_text_result)

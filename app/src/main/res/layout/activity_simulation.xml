@@ -21,7 +21,7 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_chainStyle="packed" />
 
-    <com.example.challengeeasy.SimulationEditText
+    <com.example.challengeeasy.customview.SimulationEditText
         android:id="@+id/activity_simulation_edit_text_invested_amount"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
@@ -51,7 +51,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/activity_simulation_edit_text_invested_amount" />
 
-    <com.example.challengeeasy.SimulationEditText
+    <com.example.challengeeasy.customview.SimulationEditText
         android:id="@+id/activity_simulation_edit_text_maturity_date"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
@@ -79,7 +79,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/activity_simulation_edit_text_maturity_date" />
 
-    <com.example.challengeeasy.SimulationEditText
+    <com.example.challengeeasy.customview.SimulationEditText
         android:id="@+id/activity_simulation_edit_text_rate"
         android:layout_width="0dp"
         android:layout_height="wrap_content"

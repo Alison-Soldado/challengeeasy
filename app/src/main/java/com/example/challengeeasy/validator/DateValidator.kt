@@ -1,4 +1,4 @@
-package com.example.challengeeasy
+package com.example.challengeeasy.validator
 
 import java.util.*
 
