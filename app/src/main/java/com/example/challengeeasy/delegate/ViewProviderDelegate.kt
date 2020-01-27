@@ -9,12 +9,15 @@ import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.RecyclerView
 import kotlin.reflect.KProperty
 
+// TODO CHANGE TO BINDVIEW OF KOTLIN KNIFE
 class ViewProviderDelegate<out T : View>(@IdRes idRes: Int) : NullableViewProviderDelegate<T>(idRes) {
 
+    @RequiresApi(Build.VERSION_CODES.KITKAT)
     override operator fun getValue(thisRef: Activity, property: KProperty<*>): T {
         return super.getValue(thisRef, property)!!
     }
 
+    @RequiresApi(Build.VERSION_CODES.KITKAT)
     override operator fun getValue(thisRef: Fragment, property: KProperty<*>): T {
         return super.getValue(thisRef, property)!!
     }
