@@ -38,6 +38,7 @@ class SimulationActivityTest {
 
     @Before
     fun setup() {
+        //TODO REFACTOR SETUP
         server = MockWebServer()
         server.start()
 
@@ -58,6 +59,7 @@ class SimulationActivityTest {
         }
 
         modulesTest = listOf(uiModuleTest, simulationModuleTest, remoteModuleTest)
+        //TODO USE MOCKITO
         mockkStatic(PATH_SIMULATION_MODULES)
         every { initSimulationModule() } returns loadKoinModules(modulesTest)
     }
