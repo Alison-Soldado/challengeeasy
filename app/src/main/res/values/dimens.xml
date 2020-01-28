@@ -3,4 +3,7 @@
     <dimen name="margin_border">16dp</dimen>
     <dimen name="margin_component">8dp</dimen>
     <dimen name="margin_tallest">32dp</dimen>
+
+    <dimen name="text_size_medium">18sp</dimen>
+    <dimen name="text_size_tall">24sp</dimen>
 </resources>

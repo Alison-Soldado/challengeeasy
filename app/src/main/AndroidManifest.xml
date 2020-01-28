@@ -18,7 +18,8 @@
         <activity
             android:name=".simulation.SimulationActivity"
             android:launchMode="singleTask"
-            android:screenOrientation="portrait">
+            android:screenOrientation="portrait"
+            android:label="@string/activity_simulation_name">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
@@ -29,7 +30,8 @@
         <activity
             android:name=".resultsimulation.ResultSimulationActivity"
             android:parentActivityName=".simulation.SimulationActivity"
-            android:screenOrientation="portrait"/>
+            android:screenOrientation="portrait"
+            android:label="@string/activity_result_simulation_name"/>
     </application>
 
 </manifest>

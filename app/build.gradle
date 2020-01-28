@@ -76,8 +76,8 @@ dependencies {
     implementation 'org.koin:koin-androidx-scope:2.0.1'
     implementation 'org.koin:koin-androidx-viewmodel:2.0.1'
 
-    implementation 'com.squareup.okhttp3:okhttp:4.2.1'
-    implementation 'com.squareup.okhttp3:logging-interceptor:4.2.1'
+    implementation 'com.squareup.okhttp3:okhttp:3.12.3'
+    implementation 'com.squareup.okhttp3:logging-interceptor:3.12.3'
 
     testImplementation 'junit:junit:4.12'
 

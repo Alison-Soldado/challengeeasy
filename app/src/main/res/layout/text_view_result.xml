@@ -10,7 +10,6 @@
         android:id="@+id/text_view_result_text"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-
         android:textSize="12sp"
         android:maxLines="2"
         app:layout_constraintStart_toStartOf="parent"
@@ -23,7 +22,7 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:textSize="12sp"
-        android:textColor="@color/gray"
+        android:textColor="@color/gray_504D4D"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="@+id/text_view_result_text"
         app:layout_constraintBottom_toBottomOf="@+id/text_view_result_text"

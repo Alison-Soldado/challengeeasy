@@ -1,166 +1,169 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:padding="@dimen/margin_border"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools">
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
 
-
-    <androidx.appcompat.widget.AppCompatTextView
-        android:id="@+id/activity_result_simulation_text_view_result"
-        android:layout_width="0dp"
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/activity_result_simulation_text_result"
-        android:textAlignment="center"
-        android:layout_marginTop="@dimen/margin_border"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+        android:padding="@dimen/margin_border">
 
-    <androidx.appcompat.widget.AppCompatTextView
-        android:id="@+id/activity_result_simulation_text_view_value_result"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        tools:text="R$ 1088,69"
-        android:textSize="38sp"
-        android:textColor="@color/gray"
-        android:textAlignment="center"
-        android:layout_marginTop="@dimen/margin_component"
-        app:layout_constraintTop_toBottomOf="@id/activity_result_simulation_text_view_result"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"/>
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/activity_result_simulation_text_view_result"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_border"
+            android:text="@string/activity_result_simulation_text_result"
+            android:textAlignment="center"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
-    <androidx.appcompat.widget.AppCompatTextView
-        android:id="@+id/activity_result_simulation_text_view_yield_total"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:text="@string/activity_result_simulation_text_yield"
-        android:textAlignment="center"
-        android:layout_marginTop="@dimen/margin_component"
-        app:layout_constraintTop_toBottomOf="@id/activity_result_simulation_text_view_value_result"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"/>
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/activity_result_simulation_text_view_value_result"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_component"
+            android:textAlignment="center"
+            android:textColor="@color/gray_504D4D"
+            android:textSize="38sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/activity_result_simulation_text_view_result"
+            tools:text="R$ 1088,69" />
 
-    <com.example.challengeeasy.customview.ResultTextView
-        android:id="@+id/activity_result_simulation_text_view_value_apply"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/margin_tallest"
-        app:text_result="@string/activity_result_simulation_text_value_apply"
-        app:layout_constraintTop_toBottomOf="@id/activity_result_simulation_text_view_yield_total"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"/>
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/activity_result_simulation_text_view_yield_total"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_component"
+            android:text="@string/activity_result_simulation_text_yield"
+            android:textAlignment="center"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/activity_result_simulation_text_view_value_result" />
 
-    <com.example.challengeeasy.customview.ResultTextView
-        android:id="@+id/activity_result_simulation_text_view_value_gross"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/margin_component"
-        app:text_result="@string/activity_result_simulation_text_value_grosss"
-        app:layout_constraintTop_toBottomOf="@id/activity_result_simulation_text_view_value_apply"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"/>
+        <com.example.challengeeasy.customview.ResultTextView
+            android:id="@+id/activity_result_simulation_text_view_value_apply"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_tallest"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/activity_result_simulation_text_view_yield_total"
+            app:text_result="@string/activity_result_simulation_text_value_apply" />
 
-    <com.example.challengeeasy.customview.ResultTextView
-        android:id="@+id/activity_result_simulation_text_view_value_investment"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/margin_component"
-        app:text_result="@string/activity_result_simulation_text_value_investment"
-        app:layout_constraintTop_toBottomOf="@id/activity_result_simulation_text_view_value_gross"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"/>
+        <com.example.challengeeasy.customview.ResultTextView
+            android:id="@+id/activity_result_simulation_text_view_value_gross"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_component"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/activity_result_simulation_text_view_value_apply"
+            app:text_result="@string/activity_result_simulation_text_value_grosss" />
 
-    <com.example.challengeeasy.customview.ResultTextView
-        android:id="@+id/actiivity_result_simulation_text_view_ir_investment"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/margin_component"
-        app:text_result="@string/activity_result_simulation_text_ir_investment"
-        app:layout_constraintTop_toBottomOf="@id/activity_result_simulation_text_view_value_investment"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"/>
+        <com.example.challengeeasy.customview.ResultTextView
+            android:id="@+id/activity_result_simulation_text_view_value_investment"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_component"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/activity_result_simulation_text_view_value_gross"
+            app:text_result="@string/activity_result_simulation_text_value_investment" />
 
-    <com.example.challengeeasy.customview.ResultTextView
-        android:id="@+id/activity_result_simulation_text_view_net_value"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/margin_component"
-        app:text_result="@string/activity_result_simulation_text_net_value"
-        app:layout_constraintTop_toBottomOf="@id/actiivity_result_simulation_text_view_ir_investment"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"/>
+        <com.example.challengeeasy.customview.ResultTextView
+            android:id="@+id/actiivity_result_simulation_text_view_ir_investment"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_component"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/activity_result_simulation_text_view_value_investment"
+            app:text_result="@string/activity_result_simulation_text_ir_investment" />
 
-    <com.example.challengeeasy.customview.ResultTextView
-        android:id="@+id/activity_result_simulation_text_view_date_redemption"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/margin_tallest"
-        app:text_result="@string/activity_result_simulation_text_date_redemption"
-        app:layout_constraintTop_toBottomOf="@id/activity_result_simulation_text_view_net_value"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"/>
+        <com.example.challengeeasy.customview.ResultTextView
+            android:id="@+id/activity_result_simulation_text_view_net_value"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_component"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/actiivity_result_simulation_text_view_ir_investment"
+            app:text_result="@string/activity_result_simulation_text_net_value" />
 
-    <com.example.challengeeasy.customview.ResultTextView
-        android:id="@+id/activity_result_simulation_text_view_continuous_days"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/margin_component"
-        app:text_result="@string/activity_result_simulation_text_continuos_days"
-        app:layout_constraintTop_toBottomOf="@id/activity_result_simulation_text_view_date_redemption"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+        <com.example.challengeeasy.customview.ResultTextView
+            android:id="@+id/activity_result_simulation_text_view_date_redemption"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_tallest"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/activity_result_simulation_text_view_net_value"
+            app:text_result="@string/activity_result_simulation_text_date_redemption" />
 
-    <com.example.challengeeasy.customview.ResultTextView
-        android:id="@+id/activity_result_simulation_text_view_monthly_income"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/margin_component"
-        app:text_result="@string/activity_result_simulation_text_monthly_income"
-        app:layout_constraintTop_toBottomOf="@id/activity_result_simulation_text_view_continuous_days"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"/>
+        <com.example.challengeeasy.customview.ResultTextView
+            android:id="@+id/activity_result_simulation_text_view_continuous_days"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_component"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/activity_result_simulation_text_view_date_redemption"
+            app:text_result="@string/activity_result_simulation_text_continuos_days" />
 
-    <com.example.challengeeasy.customview.ResultTextView
-        android:id="@+id/activity_result_simulation_text_view_percentage_cdi"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/margin_component"
-        app:text_result="@string/activity_result_simulation_text_percentage_cdi"
-        app:layout_constraintTop_toBottomOf="@id/activity_result_simulation_text_view_monthly_income"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"/>
+        <com.example.challengeeasy.customview.ResultTextView
+            android:id="@+id/activity_result_simulation_text_view_monthly_income"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_component"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/activity_result_simulation_text_view_continuous_days"
+            app:text_result="@string/activity_result_simulation_text_monthly_income" />
 
-    <com.example.challengeeasy.customview.ResultTextView
-        android:id="@+id/activity_result_simulation_text_view_annual_profit"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/margin_component"
-        app:text_result="@string/activity_result_simulation_text_annual_profit"
-        app:layout_constraintTop_toBottomOf="@id/activity_result_simulation_text_view_percentage_cdi"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"/>
+        <com.example.challengeeasy.customview.ResultTextView
+            android:id="@+id/activity_result_simulation_text_view_percentage_cdi"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_component"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/activity_result_simulation_text_view_monthly_income"
+            app:text_result="@string/activity_result_simulation_text_percentage_cdi" />
 
-    <com.example.challengeeasy.customview.ResultTextView
-        android:id="@+id/activity_result_simulation_text_view_period_profit"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/margin_component"
-        app:text_result="@string/activity_result_simulation_text_period_profit"
-        app:layout_constraintTop_toBottomOf="@id/activity_result_simulation_text_view_annual_profit"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"/>
+        <com.example.challengeeasy.customview.ResultTextView
+            android:id="@+id/activity_result_simulation_text_view_annual_profit"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_component"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/activity_result_simulation_text_view_percentage_cdi"
+            app:text_result="@string/activity_result_simulation_text_annual_profit" />
 
-    <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/activity_result_simulation_button_simulate_again"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        style="@style/buttonSimulate"
-        android:layout_marginTop="@dimen/margin_tallest"
-        android:text="@string/activity_result_simulation_text_simulate_again"
-        app:layout_constraintTop_toBottomOf="@id/activity_result_simulation_text_view_period_profit"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"/>
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <com.example.challengeeasy.customview.ResultTextView
+            android:id="@+id/activity_result_simulation_text_view_period_profit"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_component"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/activity_result_simulation_text_view_annual_profit"
+            app:text_result="@string/activity_result_simulation_text_period_profit" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/activity_result_simulation_button_simulate_again"
+            style="@style/buttonSimulate"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_tallest"
+            android:text="@string/activity_result_simulation_text_simulate_again"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/activity_result_simulation_text_view_period_profit" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>

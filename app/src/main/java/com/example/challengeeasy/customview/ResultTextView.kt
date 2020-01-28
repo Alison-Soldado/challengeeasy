@@ -6,7 +6,7 @@ import android.view.ViewGroup
 import androidx.appcompat.widget.AppCompatTextView
 import androidx.constraintlayout.widget.ConstraintLayout
 import com.example.challengeeasy.R
-import com.example.challengeeasy.delegate.viewProvider
+import com.example.challengeeasy.bindView
 
 class ResultTextView @JvmOverloads constructor(
     context: Context,
@@ -14,8 +14,8 @@ class ResultTextView @JvmOverloads constructor(
     defStyleAttr: Int = 0
 ) : ConstraintLayout(context, attributeSet, defStyleAttr) {
 
-    private val textViewText: AppCompatTextView by viewProvider(R.id.text_view_result_text)
-    private val textViewValue: AppCompatTextView by viewProvider(R.id.text_view_result_value)
+    private val textViewText: AppCompatTextView by bindView(R.id.text_view_result_text)
+    private val textViewValue: AppCompatTextView by bindView(R.id.text_view_result_value)
 
     init {
         inflate(context, R.layout.text_view_result, rootView as ViewGroup?)

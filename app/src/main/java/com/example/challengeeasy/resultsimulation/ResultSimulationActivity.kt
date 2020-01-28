@@ -5,8 +5,8 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.AppCompatButton
 import androidx.appcompat.widget.AppCompatTextView
 import com.example.challengeeasy.R
+import com.example.challengeeasy.bindView
 import com.example.challengeeasy.customview.ResultTextView
-import com.example.challengeeasy.delegate.viewProvider
 import com.example.challengeeasy.domain.model.SimulationResultVO
 import com.example.challengeeasy.extension.toBrazilCurrency
 import com.example.challengeeasy.extension.toDisplayDate
@@ -15,22 +15,20 @@ import com.example.challengeeasy.extension.toSpannableColorPrimary
 
 class ResultSimulationActivity : AppCompatActivity() {
 
-    private val textViewValueResult: AppCompatTextView by viewProvider(R.id.activity_result_simulation_text_view_value_result)
-    private val textViewYieldTotal: AppCompatTextView by viewProvider(R.id.activity_result_simulation_text_view_yield_total)
-    private val textViewValueApply: ResultTextView by viewProvider(R.id.activity_result_simulation_text_view_value_apply)
-    private val textViewValueGross: ResultTextView by viewProvider(R.id.activity_result_simulation_text_view_value_gross)
-    private val textViewValueInvestment: ResultTextView by viewProvider(
-        R.id.activity_result_simulation_text_view_value_investment
-    )
-    private val textViewIr: ResultTextView by viewProvider(R.id.actiivity_result_simulation_text_view_ir_investment)
-    private val textViewNetValue: ResultTextView by viewProvider(R.id.activity_result_simulation_text_view_net_value)
-    private val textViewDateRedemption: ResultTextView by viewProvider(R.id.activity_result_simulation_text_view_date_redemption)
-    private val textViewContinuousDays: ResultTextView by viewProvider(R.id.activity_result_simulation_text_view_continuous_days)
-    private val textViewMonthlyIncome: ResultTextView by viewProvider(R.id.activity_result_simulation_text_view_monthly_income)
-    private val textViewPercentageCdi: ResultTextView by viewProvider(R.id.activity_result_simulation_text_view_percentage_cdi)
-    private val textViewAnnualProfit: ResultTextView by viewProvider(R.id.activity_result_simulation_text_view_annual_profit)
-    private val textViewPeriodProfit: ResultTextView by viewProvider(R.id.activity_result_simulation_text_view_period_profit)
-    private val buttonSimulateAgain: AppCompatButton by viewProvider(R.id.activity_result_simulation_button_simulate_again)
+    private val textViewValueResult: AppCompatTextView by bindView(R.id.activity_result_simulation_text_view_value_result)
+    private val textViewYieldTotal: AppCompatTextView by bindView(R.id.activity_result_simulation_text_view_yield_total)
+    private val textViewValueApply: ResultTextView by bindView(R.id.activity_result_simulation_text_view_value_apply)
+    private val textViewValueGross: ResultTextView by bindView(R.id.activity_result_simulation_text_view_value_gross)
+    private val textViewValueInvestment: ResultTextView by bindView(R.id.activity_result_simulation_text_view_value_investment)
+    private val textViewIr: ResultTextView by bindView(R.id.actiivity_result_simulation_text_view_ir_investment)
+    private val textViewNetValue: ResultTextView by bindView(R.id.activity_result_simulation_text_view_net_value)
+    private val textViewDateRedemption: ResultTextView by bindView(R.id.activity_result_simulation_text_view_date_redemption)
+    private val textViewContinuousDays: ResultTextView by bindView(R.id.activity_result_simulation_text_view_continuous_days)
+    private val textViewMonthlyIncome: ResultTextView by bindView(R.id.activity_result_simulation_text_view_monthly_income)
+    private val textViewPercentageCdi: ResultTextView by bindView(R.id.activity_result_simulation_text_view_percentage_cdi)
+    private val textViewAnnualProfit: ResultTextView by bindView(R.id.activity_result_simulation_text_view_annual_profit)
+    private val textViewPeriodProfit: ResultTextView by bindView(R.id.activity_result_simulation_text_view_period_profit)
+    private val buttonSimulateAgain: AppCompatButton by bindView(R.id.activity_result_simulation_button_simulate_again)
     private var indexStart: Int = 0
 
     override fun onCreate(savedInstanceState: Bundle?) {
