@@ -34,7 +34,10 @@ class SimulationActivityTest {
 
     private lateinit var server: MockWebServer
     private lateinit var modulesTest: List<Module>
-    private val PATH_SIMULATION_MODULES = "com.example.challengeeasy.injection.SimulationModulesKt"
+
+    companion object {
+        private const val PACKAGE_SIMULATION_MODULES = "com.example.challengeeasy.injection.SimulationModulesKt"
+    }
 
     @Before
     fun setup() {
@@ -60,7 +63,7 @@ class SimulationActivityTest {
 
         modulesTest = listOf(uiModuleTest, simulationModuleTest, remoteModuleTest)
         //TODO USE MOCKITO
-        mockkStatic(PATH_SIMULATION_MODULES)
+        mockkStatic(PACKAGE_SIMULATION_MODULES)
         every { initSimulationModule() } returns loadKoinModules(modulesTest)
     }
 
