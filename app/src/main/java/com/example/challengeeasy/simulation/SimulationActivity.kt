@@ -55,19 +55,19 @@ class SimulationActivity : BaseActivity(),
     }
 
     private fun initObservable() {
-        simulationViewModel.simulationResult.observe(this, Observer { simulationResult ->
-            val intentResult = Intent(this, ResultSimulationActivity::class.java)
-            intentResult.putExtra(EXTRA_RESULT, simulationResult)
-            startActivity(intentResult)
+        simulationViewModel.viewState.observe(this, Observer {
+            when (it) {
+                is SimulationViewState.Success -> initActivity(it)
+                is SimulationViewState.Error -> toast(R.string.activity_simulation_text_toast_error)
+                is SimulationViewState.Loading -> progressBarLoading.visibilityLoading(it.isLoading)
+            }
         })
+    }
 
-        simulationViewModel.error.observe(this, Observer {
-            toast(R.string.activity_simulation_text_toast_error)
-        })
-
-        simulationViewModel.loading.observe(this, Observer {
-            progressBarLoading.visibilityLoading(it)
-        })
+    private fun initActivity(it: SimulationViewState.Success) {
+        val intentResult = Intent(this, ResultSimulationActivity::class.java)
+        intentResult.putExtra(EXTRA_RESULT, it.simulationResult)
+        startActivity(intentResult)
     }
 
     override fun validate() {
