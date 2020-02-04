@@ -1,7 +1,7 @@
 package com.example.challengeeasy
 
-import com.example.challengeeasy.domain.model.InvestmentParameterVO
-import com.example.challengeeasy.domain.model.SimulationResultVO
+import com.example.challengeeasy.repository.domain.model.InvestmentParameterVO
+import com.example.challengeeasy.repository.domain.model.SimulationResultVO
 import java.math.BigDecimal
 
 fun mockSimulationResult(): SimulationResultVO {

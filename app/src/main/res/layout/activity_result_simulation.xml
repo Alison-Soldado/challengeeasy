@@ -45,7 +45,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/activity_result_simulation_text_view_value_result" />
 
-        <com.example.challengeeasy.customview.ResultTextView
+        <com.example.challengeeasy.apresentation.customview.ResultTextView
             android:id="@+id/activity_result_simulation_text_view_value_apply"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -55,7 +55,7 @@
             app:layout_constraintTop_toBottomOf="@id/activity_result_simulation_text_view_yield_total"
             app:text_result="@string/activity_result_simulation_text_value_apply" />
 
-        <com.example.challengeeasy.customview.ResultTextView
+        <com.example.challengeeasy.apresentation.customview.ResultTextView
             android:id="@+id/activity_result_simulation_text_view_value_gross"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -65,7 +65,7 @@
             app:layout_constraintTop_toBottomOf="@id/activity_result_simulation_text_view_value_apply"
             app:text_result="@string/activity_result_simulation_text_value_grosss" />
 
-        <com.example.challengeeasy.customview.ResultTextView
+        <com.example.challengeeasy.apresentation.customview.ResultTextView
             android:id="@+id/activity_result_simulation_text_view_value_investment"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -75,7 +75,7 @@
             app:layout_constraintTop_toBottomOf="@id/activity_result_simulation_text_view_value_gross"
             app:text_result="@string/activity_result_simulation_text_value_investment" />
 
-        <com.example.challengeeasy.customview.ResultTextView
+        <com.example.challengeeasy.apresentation.customview.ResultTextView
             android:id="@+id/actiivity_result_simulation_text_view_ir_investment"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -85,7 +85,7 @@
             app:layout_constraintTop_toBottomOf="@id/activity_result_simulation_text_view_value_investment"
             app:text_result="@string/activity_result_simulation_text_ir_investment" />
 
-        <com.example.challengeeasy.customview.ResultTextView
+        <com.example.challengeeasy.apresentation.customview.ResultTextView
             android:id="@+id/activity_result_simulation_text_view_net_value"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -95,7 +95,7 @@
             app:layout_constraintTop_toBottomOf="@id/actiivity_result_simulation_text_view_ir_investment"
             app:text_result="@string/activity_result_simulation_text_net_value" />
 
-        <com.example.challengeeasy.customview.ResultTextView
+        <com.example.challengeeasy.apresentation.customview.ResultTextView
             android:id="@+id/activity_result_simulation_text_view_date_redemption"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -105,7 +105,7 @@
             app:layout_constraintTop_toBottomOf="@id/activity_result_simulation_text_view_net_value"
             app:text_result="@string/activity_result_simulation_text_date_redemption" />
 
-        <com.example.challengeeasy.customview.ResultTextView
+        <com.example.challengeeasy.apresentation.customview.ResultTextView
             android:id="@+id/activity_result_simulation_text_view_continuous_days"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -115,7 +115,7 @@
             app:layout_constraintTop_toBottomOf="@id/activity_result_simulation_text_view_date_redemption"
             app:text_result="@string/activity_result_simulation_text_continuos_days" />
 
-        <com.example.challengeeasy.customview.ResultTextView
+        <com.example.challengeeasy.apresentation.customview.ResultTextView
             android:id="@+id/activity_result_simulation_text_view_monthly_income"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -125,7 +125,7 @@
             app:layout_constraintTop_toBottomOf="@id/activity_result_simulation_text_view_continuous_days"
             app:text_result="@string/activity_result_simulation_text_monthly_income" />
 
-        <com.example.challengeeasy.customview.ResultTextView
+        <com.example.challengeeasy.apresentation.customview.ResultTextView
             android:id="@+id/activity_result_simulation_text_view_percentage_cdi"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -135,7 +135,7 @@
             app:layout_constraintTop_toBottomOf="@id/activity_result_simulation_text_view_monthly_income"
             app:text_result="@string/activity_result_simulation_text_percentage_cdi" />
 
-        <com.example.challengeeasy.customview.ResultTextView
+        <com.example.challengeeasy.apresentation.customview.ResultTextView
             android:id="@+id/activity_result_simulation_text_view_annual_profit"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -145,7 +145,7 @@
             app:layout_constraintTop_toBottomOf="@id/activity_result_simulation_text_view_percentage_cdi"
             app:text_result="@string/activity_result_simulation_text_annual_profit" />
 
-        <com.example.challengeeasy.customview.ResultTextView
+        <com.example.challengeeasy.apresentation.customview.ResultTextView
             android:id="@+id/activity_result_simulation_text_view_period_profit"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
