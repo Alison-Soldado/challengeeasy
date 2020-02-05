@@ -13,6 +13,8 @@ import androidx.test.espresso.intent.matcher.IntentMatchers.toPackage
 import androidx.test.espresso.matcher.RootMatchers.withDecorView
 import androidx.test.espresso.matcher.ViewMatchers.*
 import androidx.test.rule.ActivityTestRule
+import okhttp3.mockwebserver.MockResponse
+import okhttp3.mockwebserver.MockWebServer
 import org.hamcrest.Matchers.`is`
 import org.hamcrest.Matchers.not
 
@@ -47,5 +49,12 @@ open class BaseRobotTest {
 
     protected fun checkButtonDisabled(@IdRes id: Int) {
         onView(withId(id)).check(matches(not(isEnabled())))
+    }
+
+    protected fun setupServer(server: MockWebServer, code: Int, jsonMockResponse: String) {
+        server.enqueue(
+            MockResponse()
+                .setResponseCode(code)
+                .setBody(jsonMockResponse))
     }
 }

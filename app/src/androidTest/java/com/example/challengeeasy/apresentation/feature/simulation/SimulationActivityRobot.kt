@@ -7,7 +7,6 @@ import androidx.test.rule.ActivityTestRule
 import com.example.challengeeasy.BaseRobotTest
 import com.example.challengeeasy.R
 import com.example.challengeeasy.mockSimulationResult
-import okhttp3.mockwebserver.MockResponse
 import okhttp3.mockwebserver.MockWebServer
 
 fun simulate(func: SimulationActivityRobot.() -> Unit) = SimulationActivityRobot().apply { func() }
@@ -19,11 +18,12 @@ class SimulationActivityRobot : BaseRobotTest() {
         activityRule.launchActivity(Intent())
     }
 
-    fun setupServer(server: MockWebServer, jsonMockResponse: String) {
-        server.enqueue(
-            MockResponse()
-                .setResponseCode(200)
-                .setBody(jsonMockResponse))
+    fun setupServerSuccess(server: MockWebServer) {
+        setupServer(server, 200, "fixture/success_simulate.json")
+    }
+
+    fun setupServerError(server: MockWebServer) {
+        setupServer(server, 400,"fixture/error_simulate.json")
     }
 
     fun setAmountEditText(amount : String) {

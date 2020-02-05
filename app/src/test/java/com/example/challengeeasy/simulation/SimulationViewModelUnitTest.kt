@@ -1,10 +1,11 @@
-package com.example.challengeeasy
+package com.example.challengeeasy.simulation
 
 import androidx.lifecycle.Observer
 import com.example.challengeeasy.repository.domain.model.SimulationResultVO
 import com.example.challengeeasy.repository.domain.source.SimulationDataSource
 import com.example.challengeeasy.apresentation.feature.simulation.SimulationViewModel
 import com.example.challengeeasy.apresentation.feature.simulation.SimulationViewState
+import com.example.challengeeasy.instantLiveDataAndCoroutinesRule
 import com.nhaarman.mockito_kotlin.mock
 import com.nhaarman.mockitokotlin2.*
 import kotlinx.coroutines.runBlocking

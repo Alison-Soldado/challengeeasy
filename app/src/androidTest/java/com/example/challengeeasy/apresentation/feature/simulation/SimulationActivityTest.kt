@@ -3,6 +3,7 @@ package com.example.challengeeasy.apresentation.feature.simulation
 import androidx.test.espresso.intent.rule.IntentsTestRule
 import androidx.test.ext.junit.runners.AndroidJUnit4
 import androidx.test.filters.MediumTest
+import com.example.challengeeasy.BaseInstrumentedTest
 import com.example.challengeeasy.infrastructure.network.createApi
 import com.example.challengeeasy.infrastructure.network.provideOkHttpClient
 import com.example.challengeeasy.infrastructure.network.provideRetrofit
@@ -27,50 +28,10 @@ import org.koin.dsl.module
 
 @MediumTest
 @RunWith(AndroidJUnit4::class)
-class SimulationActivityTest {
+class SimulationActivityTest : BaseInstrumentedTest() {
 
     @get:Rule
     var activityRule = IntentsTestRule(SimulationActivity::class.java, false, false)
-
-    private lateinit var server: MockWebServer
-    private lateinit var modulesTest: List<Module>
-
-    companion object {
-        private const val PACKAGE_SIMULATION_MODULES = "com.example.challengeeasy.infrastructure.injection.SimulationModulesKt"
-    }
-
-    @Before
-    fun setup() {
-        //TODO REFACTOR SETUP
-        server = MockWebServer()
-        server.start()
-
-        val retrofitTest = provideRetrofit(server.url("/").toString(), provideOkHttpClient())
-
-        val uiModuleTest = module {
-            viewModel { SimulationViewModel(get()) }
-        }
-
-        val simulationModuleTest = module {
-            single<SimulationDataSource> { SimulationRepository(createApi(retrofitTest)) }
-        }
-
-        val remoteModuleTest = module {
-            single { provideOkHttpClient() }
-            single { retrofitTest }
-            single { createApi<SimulateApi>(retrofitTest) }
-        }
-
-        modulesTest = listOf(uiModuleTest, simulationModuleTest, remoteModuleTest)
-        mockkStatic(PACKAGE_SIMULATION_MODULES)
-        every { initSimulationModule() } returns loadKoinModules(modulesTest)
-    }
-
-    @After
-    fun tearDown() {
-        server.shutdown()
-        unloadKoinModules(modulesTest)
-    }
 
     @Test
     fun givenFillFieldsWrong_WhenClickSimulate_ThenButtonDisabled() {
@@ -97,7 +58,7 @@ class SimulationActivityTest {
     @Test
     fun givenFillFields_WhenClickSimulate_ThenShowResultSimulation() {
         simulate {
-            setupServer(server, "success_simulate.json")
+            setupServerSuccess(server)
             startActivity(activityRule)
             setAmountEditText("10000")
             setMaturityDate("21122021")
@@ -110,7 +71,7 @@ class SimulationActivityTest {
     @Test
     fun givenFillFields_WhenClickSimulate_ThenShowError() {
         simulate {
-            setupServer(server, "error_simulate.json")
+            setupServerError(server)
             startActivity(activityRule)
             setAmountEditText("10000")
             setMaturityDate("21122021")
