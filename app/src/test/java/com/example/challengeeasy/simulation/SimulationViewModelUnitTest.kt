@@ -12,6 +12,9 @@ import kotlinx.coroutines.runBlocking
 import org.junit.Before
 import org.junit.Rule
 import org.junit.Test
+import java.lang.Exception
+import java.lang.RuntimeException
+import java.net.UnknownHostException
 
 class SimulationViewModelUnitTest {
 
@@ -38,7 +41,7 @@ class SimulationViewModelUnitTest {
     }
 
     @Test
-    fun givenData_WhenSimulate_ThenReturnResult() {
+    fun givenData_WhenSimulate_ThenReturnSuccess() {
         whenever(runBlocking {
             simulationDataSource.simulate(any())
         }) doReturn simulationResultVOTest
