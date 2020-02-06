@@ -30,7 +30,6 @@ open class BaseInstrumentedTest {
 
     @Before
     fun setup() {
-        //TODO REFACTOR SETUP
         server = MockWebServer()
         server.start()
 
