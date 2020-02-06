@@ -55,6 +55,6 @@ open class BaseRobotTest {
         server.enqueue(
             MockResponse()
                 .setResponseCode(code)
-                .setBody(jsonMockResponse))
+                .setBody(JsonReader.getStringFromJsonFile(jsonMockResponse)))
     }
 }
