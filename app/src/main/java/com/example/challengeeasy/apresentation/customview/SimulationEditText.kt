@@ -15,7 +15,7 @@ import com.example.challengeeasy.repository.domain.validator.*
 class SimulationEditText(context: Context, attributeSet: AttributeSet) :
     AppCompatEditText(context, attributeSet) {
 
-    private var uiValidator: Validator? = null
+    private var validator: Validator? = null
     private var validationListener: ValidationListener? = null
     private val stateError = intArrayOf(R.attr.state_error)
     private var isEdited = false
@@ -62,7 +62,7 @@ class SimulationEditText(context: Context, attributeSet: AttributeSet) :
     }
 
     private fun initValidator(validator: Validator) {
-        uiValidator = validator
+        this.validator = validator
 
         addTextChangedListener(object : TextWatcher {
             override fun afterTextChanged(s: Editable?) {}
@@ -83,20 +83,20 @@ class SimulationEditText(context: Context, attributeSet: AttributeSet) :
     }
 
     private fun updateState() {
-        uiValidator?.let {
+        validator?.let {
             isError = !isFocus && !it.isValid(text.toString()) && isEdited
             refreshDrawableState()
         }
     }
 
     fun forceUpdateState() {
-        uiValidator?.let {
+        validator?.let {
             isError = !it.isValid(text.toString())
             refreshDrawableState()
         }
     }
 
-    fun isValid(): Boolean = uiValidator?.isValid(text.toString()) ?: false
+    fun isValid(): Boolean = validator?.isValid(text.toString()) ?: false
 
     fun setValidationListener(validationListener: ValidationListener) {
         this.validationListener = validationListener

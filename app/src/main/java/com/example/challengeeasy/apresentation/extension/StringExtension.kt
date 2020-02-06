@@ -23,6 +23,9 @@ fun String.toDate(input: String, output: String): String {
     val locale = Locale("pt-BR")
     val inputFormat = SimpleDateFormat(input, locale)
     val outputFormat = SimpleDateFormat(output, locale)
-    val d = inputFormat.parse(this)
-    return outputFormat.format(d)
+    val date : Date? = inputFormat.parse(this)
+    date?.let {
+        return outputFormat.format(date)
+    }
+    return ""
 }

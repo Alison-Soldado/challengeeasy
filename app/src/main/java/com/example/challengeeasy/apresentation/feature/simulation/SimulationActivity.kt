@@ -11,9 +11,9 @@ import com.example.challengeeasy.apresentation.feature.bindView
 import com.example.challengeeasy.apresentation.customview.SimulationEditText
 import com.example.challengeeasy.apresentation.extension.toast
 import com.example.challengeeasy.apresentation.extension.visibilityLoading
-import com.example.challengeeasy.infrastructure.injection.initSimulationModule
 import com.example.challengeeasy.apresentation.feature.resultsimulation.ResultSimulationActivity
 import com.example.challengeeasy.apresentation.feature.resultsimulation.ResultSimulationActivity.Companion.EXTRA_RESULT
+import com.example.challengeeasy.infrastructure.injection.SimulationModules.initSimulationModule
 import com.example.challengeeasy.repository.domain.validator.ValidationListener
 import org.koin.androidx.viewmodel.ext.android.viewModel
 

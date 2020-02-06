@@ -3,27 +3,12 @@ package com.example.challengeeasy.apresentation.feature.simulation
 import androidx.test.espresso.intent.rule.IntentsTestRule
 import androidx.test.ext.junit.runners.AndroidJUnit4
 import androidx.test.filters.MediumTest
+import androidx.test.platform.app.InstrumentationRegistry
 import com.example.challengeeasy.BaseInstrumentedTest
-import com.example.challengeeasy.infrastructure.network.createApi
-import com.example.challengeeasy.infrastructure.network.provideOkHttpClient
-import com.example.challengeeasy.infrastructure.network.provideRetrofit
-import com.example.challengeeasy.repository.domain.source.SimulationDataSource
-import com.example.challengeeasy.infrastructure.injection.initSimulationModule
-import com.example.challengeeasy.repository.resource.remote.api.SimulateApi
-import com.example.challengeeasy.repository.resource.remote.source.SimulationRepository
-import io.mockk.every
-import io.mockk.mockkStatic
-import okhttp3.mockwebserver.MockWebServer
-import org.junit.After
 import org.junit.Before
 import org.junit.Rule
 import org.junit.Test
 import org.junit.runner.RunWith
-import org.koin.androidx.viewmodel.dsl.viewModel
-import org.koin.core.context.loadKoinModules
-import org.koin.core.context.unloadKoinModules
-import org.koin.core.module.Module
-import org.koin.dsl.module
 
 
 @MediumTest
